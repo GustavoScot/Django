@@ -1,0 +1,53 @@
+-py
+
+py -m venv .venv  
+
+.venv/Scripts/activate
+
+py -m pip install Django
+
+django-admin startproject project
+
+cd project
+
+py manage.py runserver ## para rodar o servidor 
+
+abre o http
+
+--- criar um app:
+
+	py manage.py startapp app project_list 
+
+	##vai em todoApp/settings.py  INSTALLED_APPS = [
+    							'django.contrib.admin',
+    							'django.contrib.auth',
+   							'django.contrib.contenttypes',
+    							'django.contrib.sessions',
+    							'django.contrib.messages',
+    							'django.contrib.staticfiles',
+							'project_list'
+							]
+	
+	
+	baixar tailwind:
+
+	npm install tailwindcss @tailwindcss/cli
+
+	colocar  @import "tailwindcss";  dentro de um file ./project/static/src/styles.css
+
+	npx @tailwindcss/cli -i ./static/src/styles.css -o ./static/css/styles.css --watch 
+
+
+--- superuser
+## divide tela
+cd..
+
+.venv/Scripts/activate
+
+cd project
+
+py manage.py migrate 
+
+py manage.py createsuperuser
+
+##http://127.0.0.1:8000/admin

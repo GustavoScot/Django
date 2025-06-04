@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> todolist </h1>
+
+{% if todos %}
+<table class = "table">
+   <thead>
+        <tr>
+            <th scape = "col">#</th>
+            <th scape = "col">title</th>
+            <th scape = "col">completed</th>
+            <th scape = "col">created</th>
+            <th scape = "col">update</th>
+            <th scape = "col">delete</th>
+        </tr>
+    </thead>
+{% for todo in todos %}
+    {% if todo.completed %}
+    <tr class = "table-success">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+        <td>{{ todo.created_at }}</td>
+        <td ><a href = "#">update</a></td>
+        <td ><a href = "#">delete</a></td>
+    </tr>
+    {% else %}
+    <tr>
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.completed }}</td>
+        <td>{{ todo.created_at }}</td>
+        <td><a href = "#">update</a></td>
+        <td><a href = "#">delete</a></td>
+    </tr>
+    {% endif %}
+{% endfor %}
+</table>
+{% else %}
+    <p>No todos found</p>
+{% endif %}
+
+{% endblock %}
