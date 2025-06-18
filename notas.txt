@@ -16,7 +16,7 @@ abre o http
 
 --- criar um app:
 
-	py manage.py startapp app project_list 
+	py manage.py startapp project_list 
 
 	##vai em todoApp/settings.py  INSTALLED_APPS = [
     							'django.contrib.admin',
