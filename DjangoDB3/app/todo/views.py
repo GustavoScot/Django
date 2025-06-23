@@ -7,11 +7,8 @@ def home(request):
         form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
-            todos = Todo.objects.all
-            return render(request, 'home.html', {'todos': todos})
-    else:
-        todos: Todo.objects.all
-        return render(request, 'home.html', {'todos': todos})
+    todos = Todo.objects.all()
+    return render(request, 'home.html', {'todos': todos})
 
 def about(request):
     context = {
